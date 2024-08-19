@@ -8,6 +8,20 @@ setTimeout(() => {
     audioGamemusic.play()
 }, 1000);
 
+function handleOrientationChange() {
+    if (window.innerHeight > window.innerWidth) {
+        document.getElementById('gameContainer').style.display = 'none';
+        alert('Please rotate your device to landscape mode for the best experience.');
+    } else {
+        document.getElementById('gameContainer').style.display = 'block';
+    }
+};
+
+document.addEventListener("DOMContentLoaded", function () {
+    window.addEventListener('resize', handleOrientationChange);
+    handleOrientationChange();
+});
+
 document.onkeydown = function (e) {
     console.log("Your key code is: ", e.keyCode);
     if (e.keyCode == 38) {
